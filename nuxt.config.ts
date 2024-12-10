@@ -1,8 +1,9 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+// https://nuxt.com/docs/api/configuration/nuxt-configç
+import Nora from "@primevue/themes/nora"
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/i18n"],
+  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/i18n", "@primevue/nuxt-module"],
   app: {
     head: {
       title: "Cooking Nuxt | Recipe book & shopping list",
@@ -19,6 +20,20 @@ export default defineNuxtConfig({
           href: "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined",
         },
       ],
+    },
+  },
+  primevue: {
+    options: {
+      ripple: true,
+      inputVariant: "filled",
+      theme: {
+        preset: Nora,
+        options: {
+          prefix: "p",
+          darkModeSelector: "system",
+          cssLayer: false,
+        },
+      },
     },
   },
   runtimeConfig: {

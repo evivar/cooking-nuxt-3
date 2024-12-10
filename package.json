@@ -12,11 +12,15 @@
   "dependencies": {
     "@nuxtjs/i18n": "^9.1.1",
     "@nuxtjs/tailwindcss": "^6.12.2",
+    "@primevue/themes": "^4.2.4",
     "nuxt": "^3.14.1592",
+    "nuxt-primevue": "^3.0.0",
+    "primevue": "^4.2.4",
     "vue": "latest",
     "vue-router": "latest"
   },
   "devDependencies": {
+    "@primevue/nuxt-module": "^4.2.4",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
     "sass-embedded": "^1.82.0",
