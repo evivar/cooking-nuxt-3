@@ -1,6 +1,7 @@
 <template>
   <div class="pro-venue-input" :class="{ error: isError }">
     <input
+      autocomplete="off"
       :value="modelValue"
       :type="type"
       :placeholder="placeholder"
