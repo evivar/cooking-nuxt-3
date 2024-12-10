@@ -11,7 +11,9 @@
     </div>
     <div class="ck-recipe-card--info">
       <span class="ck-recipe-card--info__title">{{ recipeTitle }}</span>
-      <span class="ck-recipe-card--info__subtitle">{{ recipeDate }}</span>
+      <span class="ck-recipe-card--info__subtitle"
+        >Creada: {{ recipeDate }}</span
+      >
     </div>
   </div>
 </template>

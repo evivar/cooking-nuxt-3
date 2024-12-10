@@ -3,9 +3,12 @@
     <div class="last-recipes">
       <span class="title">Últimas recetas</span>
       <div class="last-recipes--container">
-        <CKRecipeCard />
-        <CKRecipeCard />
-        <CKRecipeCard />
+        <CKRecipeCard
+          v-for="recipe in lastThreeRecipes"
+          :key="recipe.id"
+          :recipe-title="recipe.fields.title"
+          :recipe-date="recipe.createdTime"
+        />
       </div>
     </div>
     <div class="shopping-list">
@@ -25,6 +28,12 @@
 <script setup>
 import CKRecipeCard from "~/components/molecules/CKRecipeCard.vue";
 import CKButton from "~/components/atoms/CKButton.vue";
+
+const lastThreeRecipes = ref([]);
+
+const { data } = await useFetch("/api/three-recipes");
+console.log("{data} sueltos :>> ", data.value);
+lastThreeRecipes.value = data.value;
 </script>
 
 <style lang="scss" scoped>
