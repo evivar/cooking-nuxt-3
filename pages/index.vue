@@ -1,7 +1,15 @@
 <template>
   <div class="home">
     <div class="last-recipes">
-      <span class="title">Últimas recetas</span>
+      <div class="title">
+        <span>Últimas recetas</span>
+        <CKButton>
+          <template #icon>
+            <i class="material-symbols-outlined">add</i>
+          </template>
+          Añadir receta
+        </CKButton>
+      </div>
       <div class="last-recipes--container">
         <CKRecipeCard
           v-for="recipe in lastThreeRecipes"
@@ -12,14 +20,11 @@
       </div>
     </div>
     <div class="shopping-list">
-      <span class="title">Lista de la compra</span>
+      <div class="title">
+        <span>Lista de la compra</span>
+      </div>
       <div class="shopping-list--container">
-        <CKButton>
-          <template #icon>
-            <i class="material-symbols-outlined">add</i>
-          </template>
-          Añadir a la lista
-        </CKButton>
+        <CKShoppingList></CKShoppingList>
       </div>
     </div>
   </div>
@@ -28,17 +33,17 @@
 <script setup>
 import CKRecipeCard from "~/components/molecules/CKRecipeCard.vue";
 import CKButton from "~/components/atoms/CKButton.vue";
+import CKShoppingList from "~/components/organisms/CKShoppingList.vue";
 
 const lastThreeRecipes = ref([]);
 
 const { data } = await useFetch("/api/three-recipes");
-console.log("{data} sueltos :>> ", data.value);
 lastThreeRecipes.value = data.value;
 </script>
 
 <style lang="scss" scoped>
 .home {
-  @apply flex lg:flex-row flex-col-reverse;
+  @apply flex lg:flex-row flex-col-reverse lg:gap-0 gap-4;
   flex-wrap: wrap-reverse;
 }
 
@@ -49,6 +54,11 @@ lastThreeRecipes.value = data.value;
   gap: 8px;
   & > .title {
     @apply lg:text-xl text-lg;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
   }
   &--container {
     padding: 8px;
@@ -59,8 +69,20 @@ lastThreeRecipes.value = data.value;
 }
 .shopping-list {
   @apply lg:w-1/2 w-full;
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 88px);
+  gap: 8px;
   & > .title {
-    @apply lg:text-xl text-lg mb-4;
+    @apply lg:text-xl text-lg;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+  }
+  &--container {
+    padding: 8px;
   }
 }
 </style>

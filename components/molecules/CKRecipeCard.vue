@@ -2,11 +2,7 @@
   <div class="card ck-recipe-card">
     <div class="ck-recipe-card--icon-container">
       <i class="material-symbols-outlined ck-recipe-card--icon-container__icon"
-        >book</i
-      >
-      <i
-        class="material-symbols-outlined ck-recipe-card--icon-container__icon-shadow"
-        >book</i
+        >receipt_long</i
       >
     </div>
     <div class="ck-recipe-card--info">
