@@ -4,7 +4,7 @@
     paginator
     :rows="10"
     :filters="filters"
-    v-model:selection="selectedRow"
+    :selection="selectedRow"
     selectionMode="single"
     :loading="loading"
   >
