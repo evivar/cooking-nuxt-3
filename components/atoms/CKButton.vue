@@ -1,11 +1,20 @@
 <template>
   <button class="btn ck-button">
-    <slot name="icon"></slot>
-    <slot></slot>
+    <slot v-if="!loading" name="icon"></slot>
+    <slot v-if="!loading"></slot>
+    <CKLoader v-else />
   </button>
 </template>
 
 <script setup>
+import CKLoader from "./CKLoader.vue";
+
+defineProps({
+  loading: {
+    type: Boolean,
+    default: false,
+  },
+});
 </script>
 
 <style lang="scss" scoped>
@@ -15,5 +24,6 @@
   flex-direction: row;
   align-items: center;
   gap: 4px;
+  justify-content: center;
 }
 </style>

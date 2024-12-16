@@ -3,7 +3,7 @@
     <div class="last-recipes">
       <div class="title">
         <span>Últimas recetas</span>
-        <CKButton>
+        <CKButton @click="$router.push('/new-recipe')">
           <template #icon>
             <i class="material-symbols-outlined">add</i>
           </template>
@@ -12,10 +12,11 @@
       </div>
       <div class="last-recipes--container">
         <CKRecipeCard
+          @click="onLastRecipeClick(recipe)"
           v-for="recipe in lastThreeRecipes"
           :key="recipe.id"
-          :recipe-title="recipe.fields.title"
-          :recipe-date="recipe.createdTime"
+          :recipe-title="recipe.title"
+          :recipe-date="recipe.date"
         />
       </div>
     </div>
@@ -35,10 +36,19 @@ import CKRecipeCard from "~/components/molecules/CKRecipeCard.vue";
 import CKButton from "~/components/atoms/CKButton.vue";
 import CKShoppingList from "~/components/organisms/CKShoppingList.vue";
 
+const router = useRouter();
+
+const recipeStore = useRecipeStore();
+
 const lastThreeRecipes = ref([]);
 
 const { data } = await useFetch("/api/three-recipes");
 lastThreeRecipes.value = data.value;
+
+const onLastRecipeClick = (recipe) => {
+  recipeStore.setSelectedRecipe(recipe);
+  router.push("/recipe-book");
+};
 </script>
 
 <style lang="scss" scoped>

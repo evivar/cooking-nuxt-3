@@ -6,7 +6,7 @@
         v-model="newItem.name"
         @keypress.enter="onAddToListClick"
       ></CKInput>
-      <CKButton @click="onAddToListClick">
+      <CKButton @click="onAddToListClick" :loading="addToListLoading">
         <template #icon>
           <i class="material-symbols-outlined">add</i>
         </template>
@@ -42,10 +42,13 @@ const newItem = ref({
 });
 const items = ref([]);
 
+const addToListLoading = ref(false);
+
 const { data } = await useFetch("/api/shopping-list");
 items.value = data.value;
 
 const onAddToListClick = async () => {
+  addToListLoading.value = true;
   const response = await $fetch("/api/add-to-shopping-list", {
     method: "POST",
     body: {
@@ -54,6 +57,7 @@ const onAddToListClick = async () => {
   });
   items.value.push(response);
   newItem.value = { name: null, purchased: false };
+  addToListLoading.value = false;
 };
 
 const onListItemClick = async (item) => {

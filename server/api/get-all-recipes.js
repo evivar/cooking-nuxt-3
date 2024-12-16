@@ -1,7 +1,7 @@
 export default defineEventHandler(async () => {
   const { airTableKey } = useRuntimeConfig();
   const uri =
-    "https://api.airtable.com/v0/appK13ISOZy5bznU1/tblQYAwgASHHYQ0MJ?pageSize=3&sort%5B0%5D%5Bfield%5D=created&sort%5B0%5D%5Bdirection%5D=desc";
+    "https://api.airtable.com/v0/appK13ISOZy5bznU1/tblQYAwgASHHYQ0MJ?sort%5B0%5D%5Bfield%5D=created&sort%5B0%5D%5Bdirection%5D=desc";
 
   const { records } = await $fetch(uri, {
     headers: {
