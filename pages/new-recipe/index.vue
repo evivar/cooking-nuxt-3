@@ -7,12 +7,6 @@
         <hr class="separator" />
         <div class="ingredients--title">
           <span>Ingredientes</span>
-          <CKButton @click="onAddIngredientClick">
-            <template #icon>
-              <i class="material-symbols-outlined">add</i>
-            </template>
-            Añadir ingrediente
-          </CKButton>
         </div>
         <CKInput
           v-for="(ingredient, idx) in newRecipe.ingredients"
@@ -20,6 +14,14 @@
           placeholder="Ingrediente"
           v-model="newRecipe.ingredients[idx]"
         />
+        <div class="flex justify-end">
+          <CKButton @click="onAddIngredientClick">
+            <template #icon>
+              <i class="material-symbols-outlined">add</i>
+            </template>
+            Añadir ingrediente
+          </CKButton>
+        </div>
         <hr class="separator" />
         <CKTextarea placeholder="Pasos" v-model="newRecipe.steps" />
       </div>
