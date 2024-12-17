@@ -9,11 +9,13 @@
         Añadir receta
       </CKButton>
     </div>
+
     <div class="recipe-book--content">
       <div class="recipe-book--content__list">
         <span class="title"> Lista de recetas </span>
         <CKTable :recipes="recipes"></CKTable>
       </div>
+      <hr class="separator lg:hidden block w-full my-2" />
       <div class="recipe-book--content__recipe">
         <CKViewRecipe :recipe="recipeStore.selectedRecipe"></CKViewRecipe>
       </div>

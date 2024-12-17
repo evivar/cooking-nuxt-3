@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-7 max-w-sm mx-auto text-center card">
+  <div class="mt-7 max-w-sm mx-auto text-center p-4 card">
     <p class="mt-7 text-7xl fon-bold">
       {{ error.statusCode }}
     </p>
@@ -9,7 +9,7 @@
     </p>
     <button @click="handleClearError" class="btn flex my-7 mx-auto items-center">
       <i class="material-symbols-outlined mr-2">home</i>
-      <span>Go Home</span>
+      <span>Volver al inicio</span>
     </button>
   </div>
 </template>

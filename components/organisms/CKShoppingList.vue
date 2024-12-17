@@ -55,7 +55,7 @@ const onAddToListClick = async () => {
       item: newItem.value,
     },
   });
-  items.value.push(response);
+  items.value.unshift(response);
   newItem.value = { name: null, purchased: false };
   addToListLoading.value = false;
 };
@@ -70,6 +70,10 @@ const onListItemClick = async (item) => {
       fields: item.fields,
     },
   });
+  if (response.id) {
+    const { data } = await useFetch("/api/shopping-list");
+    items.value = data.value;
+  }
 };
 
 const onDeleteListItemClick = async (item) => {

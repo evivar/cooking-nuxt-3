@@ -5,10 +5,10 @@
           <nuxt-link to="/" class="font-bold">Cooking Nuxt 3</nuxt-link>
           <ul class="flex gap-4">
             <li>
-              <nuxt-link to="/">Home</nuxt-link>
+              <nuxt-link to="/">Inicio</nuxt-link>
             </li>
             <li>
-              <nuxt-link to="/recipe-book">Recipe book</nuxt-link>
+              <nuxt-link to="/recipe-book">Libro de recetas</nuxt-link>
             </li>
           </ul>
         </nav>

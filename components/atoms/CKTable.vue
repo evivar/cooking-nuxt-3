@@ -37,6 +37,16 @@ const recipeStore = useRecipeStore();
 
 const query = ref(null);
 
+watch(
+  query,
+  (searchTitle, oldValue) => {
+    if (searchTitle?.length > 2) {
+      // TODO: Hacer el filtrado por titulo
+    }
+  },
+  { immediate: true }
+);
+
 const onRecipeClick = (recipe) => {
   recipeStore.setSelectedRecipe(recipe);
 };

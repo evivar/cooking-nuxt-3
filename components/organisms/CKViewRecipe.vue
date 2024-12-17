@@ -51,13 +51,15 @@ const getRecipeImageUrl = (recipe) => {
   width: 100%;
   &--title {
     @apply lg:text-xl text-base font-semibold flex flex-row justify-between w-full;
-    
   }
-  &--image > img{
-        border-radius: 5px;
+  &--image {
+    @apply w-[200px];
+    & > img {
+      border-radius: 5px;
     }
+  }
   &--ingredients {
-    @apply flex flex-col flex-wrap w-full;
+    @apply flex flex-col flex-wrap w-full mt-4;
     & > span {
       @apply lg:text-base text-sm font-semibold;
     }

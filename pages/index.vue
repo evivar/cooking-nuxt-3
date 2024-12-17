@@ -63,7 +63,7 @@ const onLastRecipeClick = (recipe) => {
   flex-direction: column;
   gap: 8px;
   & > .title {
-    @apply lg:text-xl text-lg;
+    @apply lg:text-xl text-base font-semibold;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -84,7 +84,7 @@ const onLastRecipeClick = (recipe) => {
   max-height: calc(100vh - 88px);
   gap: 8px;
   & > .title {
-    @apply lg:text-xl text-lg;
+    @apply lg:text-xl text-base font-semibold;
     display: flex;
     flex-direction: row;
     align-items: center;
