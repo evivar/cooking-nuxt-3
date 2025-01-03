@@ -1,14 +1,14 @@
 <template>
-    <textarea
+  <textarea
     class="ck-textarea"
-      rows="8"
-      autocomplete="off"
-      :value="modelValue"
-      :type="type"
-      :placeholder="placeholder"
-      name="textarea"
-      @input="$emit('update:modelValue', $event.target.value)"
-    />
+    :rows="rows"
+    autocomplete="off"
+    :value="modelValue"
+    :type="type"
+    :placeholder="placeholder"
+    name="textarea"
+    @input="$emit('update:modelValue', $event.target.value)"
+  />
 </template>
 
 <script setup>
@@ -29,6 +29,10 @@ defineProps({
     type: Boolean,
     default: false,
   },
+  rows: {
+    type: Number,
+    default: 8,
+  },
 });
 </script>
 
@@ -42,10 +46,10 @@ defineProps({
   color: black;
   font-size: 14px;
   &:focus,
-    &:focus-visible {
-      border-color: #12b488;
-      outline: none;
-    }
+  &:focus-visible {
+    border-color: #12b488;
+    outline: none;
+  }
   &::placeholder {
   }
   &:focus,

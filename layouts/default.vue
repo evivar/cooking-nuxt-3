@@ -1,6 +1,6 @@
 <template>
     <div>
-      <header class="shadow-sm bg-white">
+      <header class="shadow-sm bg-white sticky top-0 z-50">
         <nav class="container mx-auto p-4 flex justify-between">
           <nuxt-link to="/" class="font-bold">Cooking Nuxt 3</nuxt-link>
           <ul class="flex gap-4">

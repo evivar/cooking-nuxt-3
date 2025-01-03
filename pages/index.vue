@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <div class="last-recipes">
+      <CKWeeklyMenu/>
       <div class="title">
         <span>Últimas recetas</span>
         <CKButton @click="$router.push('/new-recipe')">
@@ -35,6 +36,7 @@
 import CKRecipeCard from "~/components/molecules/CKRecipeCard.vue";
 import CKButton from "~/components/atoms/CKButton.vue";
 import CKShoppingList from "~/components/organisms/CKShoppingList.vue";
+import CKWeeklyMenu from "~/components/organisms/CKWeeklyMenu.vue";
 
 const router = useRouter();
 
@@ -54,7 +56,6 @@ const onLastRecipeClick = (recipe) => {
 <style lang="scss" scoped>
 .home {
   @apply flex lg:flex-row flex-col-reverse lg:gap-0 gap-4;
-  flex-wrap: wrap-reverse;
 }
 
 .last-recipes {
