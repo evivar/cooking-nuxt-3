@@ -63,7 +63,6 @@ const onAddToListClick = async () => {
 };
 
 const onListItemClick = async (item) => {
-  console.log("item :>> ", item);
   item.fields.purchased = !item.fields.purchased;
   delete item.fields.uuid;
   const response = await $fetch(`/api/update-shopping-list-item/${item.id}`, {
@@ -79,7 +78,6 @@ const onListItemClick = async (item) => {
 };
 
 const onDeleteListItemClick = async (item) => {
-  console.log("item :>> ", item);
   item.fields.purchased = !item.fields.purchased;
   delete item.fields.uuid;
   const response = await $fetch(`/api/delete-shopping-list-item/${item.id}`, {

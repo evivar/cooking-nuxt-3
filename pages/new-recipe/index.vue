@@ -63,14 +63,12 @@ const onSaveRecipeClick = async () => {
     ingredients: newRecipe.ingredients.toString(),
     steps: newRecipe.steps,
   };
-  console.log("fields :>> ", fields);
   const response = await $fetch("/api/add-recipe", {
     method: "POST",
     body: {
       fields: fields,
     }
   });
-  console.log('response :>> ', response);
   if(response.id){
     router.push('/recipe-book');
   }

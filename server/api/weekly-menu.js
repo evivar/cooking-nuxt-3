@@ -8,8 +8,6 @@ export default defineEventHandler(async () => {
         Authorization: `Bearer ${airTableKey}`,
       },
     });
-
-    console.log('records :>> ', records);
   
     const weeklyMenu = [];
 

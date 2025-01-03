@@ -4,9 +4,9 @@
       <span>Menu semanal</span>
       <CKButton @click="onEditClick">
         <template #icon>
-          <i class="material-symbols-outlined"> {{ isEditing ? 'save' : 'edit' }}</i>
+          <i class="material-symbols-outlined"> {{ isEditing ? "save" : "edit" }}</i>
         </template>
-        {{ isEditing ? 'Guardar' : 'Editar' }}
+        {{ isEditing ? "Guardar" : "Editar" }}
       </CKButton>
     </div>
     <div class="content">
@@ -52,16 +52,26 @@ const isEditing = ref(false);
 const menu = ref([]);
 
 const { data } = await useFetch("/api/weekly-menu");
-console.log("data :>> ", data);
 menu.value = data.value;
 
-const onEditClick = () => {
-    if(isEditing.value){
-        console.log("Guardo");
-        
-    }
-    isEditing.value = !isEditing.value;
-}
+const onEditClick = async () => {
+  if (isEditing.value) {
+    const response = await $fetch("/api/update-menu", {
+      method: "PUT",
+      body: {
+        records: menu.value.map((record) => ({
+          id: record.id,
+          fields: {
+            dayName: record.fields.dayName,
+            meal: record.fields.meal,
+            dinner: record.fields.dinner,
+          },
+        })),
+      },
+    });
+  }
+  isEditing.value = !isEditing.value;
+};
 </script>
 
 <style lang="scss" scoped>
@@ -95,6 +105,9 @@ const onEditClick = () => {
         column-gap: 8px;
         & > .title {
           @apply font-semibold;
+          height: 100%;
+        }
+        & > .meal {
           height: 100%;
         }
       }
